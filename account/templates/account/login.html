@@ -1,0 +1,49 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{%block title %} Login {%endblock%}
+
+{% block css_files %}
+	<link rel="stylesheet" href="{% static 'blog/css/journey_blog.css' %}">
+	<link rel="stylesheet" href="{% static 'account/css/account.css' %}">
+{% endblock css_files %}
+
+
+{% block content %}
+    <div class="container mt-3 login">
+        <div class="col">
+		<div class="as">
+            <h1>Login <span style="font-size:18px;">Giriş yap</span></h1>
+            <hr>
+
+            <form method="POST">
+                {% csrf_token %}
+                {% if error %}
+                    <div class="alert alert-danger">
+                        {{error}}
+                    </div>
+                {% endif %}
+                <div class="mb-3">
+                    <label for="username" class="form-label" style="font-size:20px;">Username <span style="font-size:12px;">Kullanıcı adınız</span></label>
+                    <input type="text" class="form-control" name="username" placeholder="username or email" style="background:rgba(35,146,157,0.3);">
+                </div>
+                <div class="mb-3">
+                    <label style="font-size:20px;">Password <span style="font-size:12px;">Şifreniz</span></label>
+                    <div class="d-flex justify-content-end align-items-center position-relative">
+                        <input type="password" class="form-control" name="password" id="id_password1" style="background:rgba(35,146,157,0.3);">
+                        <div class="form-check form-switch position-absolute me-2">
+                            <input class="form-check-input" type="checkbox" id="show" onclick ="reveal_password()">
+                            <label class="form-check-label" for="show">Show</label>
+                        </div>
+                    </div>
+                </div>
+                <input style="height: 30px; width: 75px; border-radius: 5px; background:rgba(217,200,59,1);" type="submit" value="Login" class="btn-primary">
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+    <script src={% static 'account/js/account.js' %}></script>
+{% endblock scripts %}
