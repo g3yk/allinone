@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+{% block title %}
+  Luggages
+{% endblock %}
+
+{% block content %}
+  {% if luggage %}
+    <h1>Details</h1>
+    <h3>Status Eklersin bi ara</h3>
+  {% else %}
+    <h1>Luggage not found</h1>
+  {% endif %}
+{% endblock %}

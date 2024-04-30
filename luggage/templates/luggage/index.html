@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+{% block title %}
+  Luggages
+{% endblock %}
+{% block content %}
+  <h1>Luggage</h1>
+  {% if user.is_authenticated %}
+    {% if not luggages %}
+      <p>You have no luggages.</p>
+    {% endif %}
+    <ul>
+      {% for luggage in luggages %}
+        <li>
+          <a href="{% url 'luggage_detail' luggage.luggage_id %}">{{ luggage.luggage_id }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}

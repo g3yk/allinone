@@ -3,8 +3,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path("<uuid:luggage_id>", views.index)
-    # path("login", views.login_request, name="login"),
-    # path("register", views.register_request, name="register"),
-    # path("logout", views.logout_request, name="logout"),
+    path("", views.index, name="luggage_index"),
+    path("<uuid:luggage_id>", views.details, name="luggage_detail"),
 ]
