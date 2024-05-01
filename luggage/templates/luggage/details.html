@@ -1,4 +1,5 @@
 {% extends 'base/base.html' %}
+{% load luggage_extras %}
 {% block title %}
   Luggages
 {% endblock %}
@@ -7,6 +8,14 @@
   {% if luggage %}
     <h1>Details</h1>
     <h3>Status Eklersin bi ara</h3>
+    <img src="{{ luggage.id|generate_barcode }}" alt="barcode" width="150" />
+    <ul>
+      <li>{{ luggage.id }}</li>
+      <li>{{ luggage.status1 }}</li>
+      <li>{{ luggage.status2 }}</li>
+      <li>{{ luggage.status3 }}</li>
+      <li>{{ luggage.status4 }}</li>
+    </ul>
   {% else %}
     <h1>Luggage not found</h1>
   {% endif %}

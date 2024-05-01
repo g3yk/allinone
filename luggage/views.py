@@ -17,7 +17,11 @@ def details(request, luggage_id):
     user = request.user
     if user.is_authenticated:
         luggage = Luggage.objects.filter(
-            passenger=user).filter(luggage_id=luggage_id)
-        return render(request, "luggage/details.html", {"luggage": luggage})
+            passenger=user).filter(id=luggage_id)
+        return render(request, "luggage/details.html", {"luggage": luggage.first()})
     else:
         return redirect("home")
+
+
+def scanner(request):
+    return render(request, "luggage/scanner.html")

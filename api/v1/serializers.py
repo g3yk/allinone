@@ -7,8 +7,8 @@ class LuggageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Luggage
         fields = [
-            "is_status1",
-            "is_status2",
-            "is_status3",
-            "is_status4",
+            "status1",
+            "status2",
+            "status3",
+            "status4",
         ]

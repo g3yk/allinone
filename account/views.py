@@ -5,6 +5,7 @@ from .forms import RegisterForm
 from django.http import HttpResponse
 # Create your views here.
 
+
 def login_request(request):
     if request.user.is_authenticated:
         return redirect("home")
@@ -24,7 +25,7 @@ def login_request(request):
             auth = False
 
         if auth:
-            login(request, user)
+            login(request, user)  # type: ignore
             return redirect("home")
 
         else:
@@ -36,7 +37,7 @@ def login_request(request):
 
 
 def register_request(request):
-    
+
     if request.user.is_authenticated:
         return redirect("home")
 
@@ -49,9 +50,8 @@ def register_request(request):
         lastname = request.POST["last_name"]
         password = request.POST["password1"]
 
-
         user = User.objects.create_user(username=username, email=email,
-        first_name=firstname, last_name=lastname, password=password)
+                                        first_name=firstname, last_name=lastname, password=password)
         user.save()
         return redirect("login")
 

@@ -8,14 +8,14 @@ from .models import Luggage
 
 
 class LuggageAdmin(admin.ModelAdmin):
-    list_display = ("luggage_id", "weight", "passenger")
-    search_fields = ("luggage_id",)
-    readonly_fields = ("luggage_id",)
+    list_display = ("pk", "weight", "passenger")
+    search_fields = ("pk",)
+    # readonly_fields = ("pk",)
     list_filter = (
-        "is_status1",
-        "is_status2",
-        "is_status3",
-        "is_status4",
+        "status1",
+        "status2",
+        "status3",
+        "status4",
     )
 
 

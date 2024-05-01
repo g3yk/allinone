@@ -1,4 +1,5 @@
 {% extends 'base/base.html' %}
+{% load luggage_extras %}
 {% block title %}
   Luggages
 {% endblock %}
@@ -10,8 +11,9 @@
     {% endif %}
     <ul>
       {% for luggage in luggages %}
-        <li>
-          <a href="{% url 'luggage_detail' luggage.luggage_id %}">{{ luggage.luggage_id }}</a>
+        <li style="margin-bottom: 30px;">
+          <a href="{% url 'luggage_detail' luggage.id %}">{{ luggage.id }}</a>
+          <img src="{{ luggage.id|generate_barcode }}" alt="barcode" width="200" />
         </li>
       {% endfor %}
     </ul>
