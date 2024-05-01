@@ -57,7 +57,8 @@ class RegisterForm(forms.Form):
 
     password1 = forms.CharField(
         widget=forms.PasswordInput(
-            attrs={"class": "form-control", "style": "background:rgba(35,146,157,0.3);"}
+            attrs={"class": "form-control",
+                   "style": "background:rgba(35,146,157,0.3);"}
         ),
         validators=[validate_password],
     )
@@ -65,7 +66,8 @@ class RegisterForm(forms.Form):
     password2 = forms.CharField(
         label="Re-Password",
         widget=forms.PasswordInput(
-            attrs={"class": "form-control", "style": "background:rgba(35,146,157,0.3);"}
+            attrs={"class": "form-control",
+                   "style": "background:rgba(35,146,157,0.3);"}
         ),
     )
 
@@ -79,8 +81,10 @@ class RegisterForm(forms.Form):
 
     def clean_email(self):
         if User.objects.filter(email=self.cleaned_data["email"]).exists():
-            raise forms.ValidationError("A user with that email already exists.")
+            raise forms.ValidationError(
+                "A user with that email already exists.")
 
     def clean_username(self):
         if User.objects.filter(username=self.cleaned_data["username"]).exists():
-            raise forms.ValidationError("A user with that username already exists.")
+            raise forms.ValidationError(
+                "A user with that username already exists.")

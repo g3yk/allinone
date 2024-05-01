@@ -1,15 +1,15 @@
-*{
-    font-family: 'Montserrat', sans-serif;
-    /* font-family: 'Montserrat', sans-serif; */
+* {
+	font-family: 'Montserrat', sans-serif;
+	/* font-family: 'Montserrat', sans-serif; */
 }
 
-.as{
+.as {
 	position: relative;
 	background-size: cover;
 	width: 100%;
 }
 
-.errorlist{
-	color: yellow;
+.errorlist {
+	color: red;
 	font-weight: bold;
 }

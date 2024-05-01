@@ -4,8 +4,31 @@
 * {
     margin: 0px;
     padding: 0px;
+    font-family: 'fontspring_demo_-_cera_rounRg';
 }
 
+@font-face {
+    font-family: 'fontspring_demo_-_cera_rounRg';
+    src: url('../fonts/fontspring-demo-ceraroundpro-regular-webfont.eot');
+    src: url('../fonts/fontspring-demo-ceraroundpro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/fontspring-demo-ceraroundpro-regular-webfont.woff2') format('woff2'),
+        url('../fonts/fontspring-demo-ceraroundpro-regular-webfont.woff') format('woff'),
+        url('../fonts/fontspring-demo-ceraroundpro-regular-webfont.ttf') format('truetype'),
+        url('../fonts/fontspring-demo-ceraroundpro-regular-webfont.svg#fontspring_demo_-_cera_rounRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+a {
+    background-color: transparent;
+    text-decoration: none;
+}
+
+
+a:visited {
+    color: transparent;
+    /* Change text color for visited links */
+}
 
 body {
     background-image: url("../img/background.png");
@@ -66,34 +89,192 @@ nav ul li a {
 marquee {
     display: block;
     margin-top: 20px;
+    font-size: 40px;
 
 }
 
 .container1 {
     max-width: 100%;
-    margin: 120px auto;
-
+    margin: 0px 45px;
 }
 
 .row {
     display: flex;
     margin-bottom: 50px;
+    flex-wrap: wrap;
 }
 
 .col {
     flex: 1;
-    background-color: #f0f0f0;
-    padding: 100px;
+    padding: 50px;
     text-align: center;
     border: dashed thick;
-    border-radius: 20px;
+    border-radius: 100px;
 
 }
 
-footer {
+.image {
+    flex: 0 0 auto;
+    max-width: 50%;
+}
+
+.image img {
+    width: 250px;
+    height: auto;
+    float: left;
+    margin-top: 30px;
+}
+
+.content {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-left: 500px;
+}
+
+.row .col .content a h1 {
+    float: right;
+}
+
+#a::after {
+    background-image: url("../img/p-08.png");
+    width: 300px;
     height: 50px;
-    width: 100%;
+    content: '';
+    display: inline-block;
+    background-size: cover;
+    vertical-align: bottom;
+    margin-left: 5px;
 }
+
+#b::after {
+    background-image: url("../img/p-09.png");
+    width: 300px;
+    height: 60px;
+    content: '';
+    display: inline-block;
+    background-size: cover;
+    vertical-align: bottom;
+    margin-left: 5px;
+}
+
+#c::after {
+    background-image: url("../img/p-11.png");
+    width: 300px;
+    height: 50px;
+    content: '';
+    display: inline-block;
+    background-size: cover;
+    vertical-align: bottom;
+    margin-left: 5px;
+}
+
+#d::after {
+    background-image: url("../img/p-10.png");
+    width: 300px;
+    height: 60px;
+    content: '';
+    display: inline-block;
+    background-size: cover;
+    vertical-align: bottom;
+    margin-left: 5px;
+}
+
+.image-container {
+    text-align: center;
+}
+
+.image-container img {
+    height: auto;
+    width: 500px;
+    margin-bottom: 50px;
+}
+
+
+
+#footer {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    float: left;
+    padding-top: 60px;
+    margin-bottom: 30px;
+}
+
+footer ul li p {
+    font-size: 15px;
+    color: rgba(35, 146, 157, 0.8);
+    letter-spacing: 0.5px;
+    line-height: 2;
+}
+
+footer ul li p::after {
+    border-bottom: thick
+}
+
+
+footer ul li p::before {
+    background-image: url("../img/Studio Projesi final kesin net 3.png");
+    width: 30px;
+    height: 30px;
+    content: '';
+    display: inline-block;
+    background-size: cover;
+    vertical-align: bottom;
+    margin-left: 5px;
+}
+
+footer ul li {
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    color: black;
+    letter-spacing: 1px;
+    font-size: 18px;
+    transition: 0.2s;
+    margin: 0 12px;
+}
+
+
+footer .copyright small {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    color: black;
+}
+
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+    0% {
+        opacity: 0;
+    }
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+.hover-effect {
+    transition: background-color 0.3s ease;
+    /* Smooth transition effect */
+}
+
+.hover-effect:hover {
+    color: red;
+    /* New background color on hover */
+}
+
 
 @media (max-width: 768px) {
     .logo {
@@ -120,7 +301,7 @@ footer {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 25px 0 0 0;
+        margin: 50px 0 0 0;
         float: none;
 
     }
@@ -140,5 +321,43 @@ footer {
         margin-top: 240px;
     }
 
+    .image-container {
+        margin-top: -20px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .image,
+    .content {
+        flex: 1 100%;
+        max-width: 100%;
+    }
+
+    .content {
+        padding-left: 0;
+        margin-top: 30px;
+    }
+
+    .image-container img {
+        height: auto;
+        width: 100%;
+    }
+
+    .image img {
+        width: 60%;
+        /* Make the image responsive */
+        height: auto;
+        float: none;
+    }
+
+    .row .col .content a h1 {
+        float: none;
+    }
+
+    marquee {
+        font-size: 30px;
+    }
 
 }

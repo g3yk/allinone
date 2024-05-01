@@ -1,19 +1,66 @@
 {% extends 'base/base.html' %}
 {% load static %}
 
+{% block bootstrap_css %}
+
+{% endblock %}
+
 {% block content %}
   <div class="container1">
-    <div class="row">
-      <div class="col">Row 1</div>
+    <div class="image-container">
+      <img src="{% static 'base/img/p-07.png' %}" />
     </div>
     <div class="row">
-      <div class="col">Row 2</div>
+      <div class="col">
+        <div class="image">
+          <img src="{% static 'base/img/p-12.png' %}" />
+        </div>
+        <div class="content">
+          <h1 style="font-family:'sans-serif'">ISTANBUL - ANKARA</h1>
+          <p style="font-family:'Helvetica Bold'; font-size:20px;">
+            24/03/2026 13.06<br />PNR CODE: A4523SF
+          </p><br /><a href="index.html" class="hover-effect"><h1 id="a">Flight Status :</h1></a>
+        </div>
+      </div>
     </div>
     <div class="row">
-      <div class="col">Row 3</div>
+      <div class="col">
+        <div class="image">
+          <img src="{% static 'base/img/p-14.png' %}" />
+        </div>
+        <div class="content">
+          <h1 style="font-family:'Helvetica Bold'">ISTANBUL - MUNICH</h1>
+          <p style="font-family:'Helvetica Bold'; font-size:20px;">
+            24/06/2026 16.26<br />PNR CODE: A45256F
+          </p><br /><a href="index.html" class="hover-effect"><h1 id="b" class="blink">Flight Status :</h1></a>
+        </div>
+      </div>
     </div>
     <div class="row">
-      <div class="col">Row 4</div>
+      <div class="col">
+        <div class="image">
+          <img src="{% static 'base/img/p-13.png' %}" />
+        </div>
+        <div class="content">
+          <h1 style="font-family:'Helvetica Bold'">ANTALYA - KUTAHYA</h1>
+          <p style="font-family:'Helvetica Bold'; font-size:20px;">
+            29/07/2026 18.36<br />PNR CODE: ADF23SF
+          </p><br /><a href="index.html" class="hover-effect"><h1 id="c" class="blink">Flight Status :</h1></a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="image">
+          <img src="{% static 'base/img/p-15.png' %}" />
+        </div>
+        <div class="content">
+          <h1 style="font-family:'Helvetica Bold'">IZMIR - MANCHESTER</h1>
+          <p style="font-family:'Helvetica Bold'; font-size:20px;">
+            12/12/2026 10.20<br />PNR CODE: AKSO3SF
+          </p><br /><a href="index.html" class="hover-effect"><h1 id="d">Flight Status :</h1></a>
+        </div>
+      </div>
     </div>
   </div>
 {% endblock %}

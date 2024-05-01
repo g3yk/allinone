@@ -19,7 +19,8 @@
         <form method="POST">
           {% csrf_token %}
           {% if error %}
-            <div class="alert alert-danger">{{ error }}</div>
+            {% comment %} <div class="alert alert-danger">{{ error }}</div> {% endcomment %}
+            <p style="color: red;">{{ error|title }}</p>
           {% endif %}
           <div class="mb-3">
             <label for="username" class="form-label" style="font-size:20px;">Username <span style="font-size:12px;">Kullanıcı adınız</span></label>

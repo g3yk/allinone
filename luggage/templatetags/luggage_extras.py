@@ -11,7 +11,6 @@ register = template.Library()
 @register.filter(name="generate_barcode")
 def generate_barcode(value):
     upca = UPCA(f"{value:011}", writer=ImageWriter())
-    print(upca)
     output = BytesIO()
     upca.write(output)
     output.seek(0)
