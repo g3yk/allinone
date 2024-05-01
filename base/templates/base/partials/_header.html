@@ -1,50 +1,38 @@
 {% load static %}
-<span id="span">Welcome❤️&nbsp;{{ user.get_full_name|title }}</span>
-<marquee scrollamount="6">Hayalisleri.com has been in service from 1 February.&nbsp;🎊&nbsp;🥳&nbsp;🎉&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hayalisleri.com 1 Şubat'tan itibaren hizmettedir.&nbsp;🎊&nbsp;🥳&nbsp;🎉</marquee>
-
-<img src="../../../static/base/img/output-onlinegiftools (1).gif" style="width: 130px; position: absolute; left:200px; top:-10px;" />
-<img style="width:100px; top:24px; position:absolute; left:165px; " src="../../../static/base/img/party-popper_1f389.gif" />
-<header class="upper">
-  <h1><a href="{% url 'home' %}"><img rel="icon" src="{% static 'base/img/icon.png' %}" alt="logo" /></a><p>&nbsp; Templated by Hayal</p></h1>
-
+<header>
+  <div class="logo">
+    <a href="{% url 'home' %}"><img src="{% static 'base/img/p-02.png' %}" /></a>
+  </div>
   <nav>
-    <ul id="dis">
-      <li>
-        <a href="{% url 'home' %}">Home</a>
+    <ul>
+      <li class="e">
+        <a href="{% url 'luggage_index' %}"><img src="{% static 'base/img/p-06.png' %}" /></a>
+      </li>
+      <li class="a">
+        <a href="#"><img src="{% static 'base/img/p-04.png' %}" style="width: 120px; height: auto;" /></a>
       </li>
       <li>
-        <a href="{% url 'luggage_index' %}">Luggages"</a>
-      </li>
-      {% comment %} <li>
-        <a href="{% url 'flights.index' %}">Flights</a>
-      </li> {% endcomment %}
-      <li>
-        <a href="#">Journey Blogs</a>
-        <ul id="ic">
-          {% for category in categories %}
-            <li>
-              <a href="#">{{ category.name|title }}</a>
-            </li><br />
-          {% endfor %}
-        </ul>
+        <a href="#"><img src="{% static 'base/img/user-interface.png' %} " style="width: 50px;" /></a>
       </li>
       <li>
-        <a href="##"><i class="fa-solid fa-user"></i></a>
-        <ul id="login">
+        <ul>
           {% if user.is_authenticated %}
-            <li style="	position: relative; left: 40px; float: right; padding-top: 15px; text-align: left;">
-              <a href="{% url 'logout' %}">Logout&nbsp;<i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-            </li><br />
+            <li>
+              <span id="span">Welcome❤️&nbsp;{{ user.get_full_name|title }}</span>
+              <a href="{% url 'logout' %}">Logout&nbsp;<i class="dropdown-item"></i></a>
+            </li>
           {% else %}
             <li>
-              <a href="{% url 'login' %}" class="nav-link">Login&nbsp;<i class="fa-solid fa-right-to-bracket"></i></a>
-            </li><br />
+              <a href="{% url 'login' %}" class="dropdown-item">Login&nbsp;<i class="fa-solid fa-right-to-bracket"></i></a>
+            </li>
+            <br />
             <li>
-              <a href="{% url 'register' %}" class="nav-link">Register</a>
-            </li><br />
+              <a href="{% url 'register' %}" class="dropdown-item">Register</a>
+            </li>
           {% endif %}
         </ul>
       </li>
     </ul>
   </nav>
+  <marquee scrollamount="5">Hayalisleri.com has been in service from 1 February.&nbsp;ðŸŽŠ&nbsp;ðŸ¥³&nbsp;ðŸŽ‰&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hayalisleri.com 1 Åžubat'tan itibaren hizmettedir.&nbsp;ðŸŽŠ&nbsp;ðŸ¥³&nbsp;ðŸŽ‰</marquee>
 </header>

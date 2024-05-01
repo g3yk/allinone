@@ -4,18 +4,22 @@
   Luggages
 {% endblock %}
 {% block content %}
-  <h1>Luggage</h1>
-  {% if user.is_authenticated %}
-    {% if not luggages %}
-      <p>You have no luggages.</p>
-    {% endif %}
-    <ul>
-      {% for luggage in luggages %}
-        <li style="margin-bottom: 30px;">
-          <a href="{% url 'luggage_detail' luggage.id %}">{{ luggage.id }}</a>
-          <img src="{{ luggage.id|generate_barcode }}" alt="barcode" width="200" />
-        </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+  <div class="container">
+    <h1>Luggage</h1>
+    <div class="col">
+      {% if user.is_authenticated %}
+        {% if not luggages %}
+          <p>You have no luggages.</p>
+        {% endif %}
+        <ul>
+          {% for luggage in luggages %}
+            <li style="margin-bottom: 30px;">
+              <a href="{% url 'luggage_detail' luggage.id %}">{{ luggage.id }}</a>
+              <img src="{{ luggage.id|generate_barcode }}" alt="barcode" width="200" />
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
 {% endblock %}

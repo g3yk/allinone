@@ -8,6 +8,7 @@ media
 .DS_Store
 pass.yaml
 .vscode
+ali/
 
 # Backup files # 
 *.bak 
