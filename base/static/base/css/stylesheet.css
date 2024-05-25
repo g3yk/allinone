@@ -27,7 +27,6 @@ a {
 
 a:visited {
     color: transparent;
-    /* Change text color for visited links */
 }
 
 body {
@@ -108,8 +107,10 @@ marquee {
     flex: 1;
     padding: 50px;
     text-align: center;
-    border: dashed thick;
     border-radius: 100px;
+    box-sizing: border-box;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
 }
 
@@ -197,7 +198,7 @@ marquee {
     margin: 0 auto;
     float: left;
     padding-top: 60px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 footer ul li p {
@@ -277,6 +278,11 @@ footer .copyright small {
 
 
 @media (max-width: 768px) {
+
+    body {
+        background-size: contain;
+    }
+
     .logo {
         float: none;
         text-align: left;
@@ -347,7 +353,6 @@ footer .copyright small {
 
     .image img {
         width: 60%;
-        /* Make the image responsive */
         height: auto;
         float: none;
     }

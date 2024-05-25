@@ -2,7 +2,6 @@ import base64
 from io import BytesIO
 
 from barcode import UPCA
-from barcode.writer import ImageWriter
 from django import template
 
 register = template.Library()
@@ -10,11 +9,11 @@ register = template.Library()
 
 @register.filter(name="generate_barcode")
 def generate_barcode(value):
-    upca = UPCA(f"{value:011}", writer=ImageWriter())
+    upca = UPCA(f"{value:011}")
     output = BytesIO()
-    upca.write(output)
+    upca.write(output, options={"background": "transparent"})
     output.seek(0)
 
     encoded_string = base64.b64encode(output.getvalue()).decode()
 
-    return "data:image/png;base64," + encoded_string
+    return "data:image/svg+xml;base64," + encoded_string

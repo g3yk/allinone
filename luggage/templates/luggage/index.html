@@ -1,24 +1,219 @@
 {% extends 'base/base.html' %}
+{% load static %}
 {% load luggage_extras %}
 {% block title %}
   Luggages
 {% endblock %}
+{% block bootstrap_css %}{% endblock %}
+{% block css_files %}
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      font-family: 'fontspring_demo_-_cera_rounRg';
+    }
+    
+    @font-face {
+      font-family: 'fontspring_demo_-_cera_rounRg';
+      src: url('fonts/fontspring-demo-ceraroundpro-regular-webfont.eot');
+      src: url('fontspring-demo-ceraroundpro-regular-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/fontspring-demo-ceraroundpro-regular-webfont.woff2') format('woff2'), url('fonts/fontspring-demo-ceraroundpro-regular-webfont.woff') format('woff'), url('fonts/fontspring-demo-ceraroundpro-regular-webfont.ttf') format('truetype'), url('fonts/fontspring-demo-ceraroundpro-regular-webfont.svg#fontspring_demo_-_cera_rounRg') format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+    
+    a {
+      background-color: transparent;
+      text-decoration: none;
+    }
+    
+    a:visited {
+      color: transparent;
+    }
+    
+    body {
+      background-image: url('../../static/base/img/background.png');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      text-align: center;
+    }
+    
+    .section {
+      flex-basis: calc(33.33% - 20px);
+      margin: 0px 25px 20px 25px;
+      padding: 100px;
+      background-color: transparent;
+      box-sizing: border-box;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      align-content: center;
+    }
+    
+    .section img {
+      height: auto;
+      margin-bottom: 15px;
+      width: 250px;
+    }
+    
+    .section h2 {
+      margin: 0 0 10px 0;
+      font-size: 1.2rem;
+    }
+    
+    .section p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    
+    #b::after {
+      background-image: url('../../static/base/img/p-09.png');
+      width: 300px;
+      height: 60px;
+      content: '';
+      display: inline-block;
+      background-size: cover;
+      vertical-align: bottom;
+      margin-left: 5px;
+    }
+    .barcode::after {
+      /* background-image: url('../../static/base/img/kisspng-barcode-universal-product-code-qr-code-sticker-barcode-white-5b4a5e6e84a3e4.3024557115316004945433.png');*/
+      background-repeat: no-repeat;
+      background-image: url('{{ luggage.id|generate_barcode }}');
+      width: 200px;
+      height: 60px;
+      content: '';
+      display: inline-block;
+      background-size: cover;
+      vertical-align: bottom;
+      margin-left: 5px;
+    }
+    
+    #img {
+      width: 70%;
+    }
+    
+    .status-bar {
+      display: flex;
+      justify-content: space-between;
+      width: 300px;
+      margin: 40px auto;
+    }
+    
+    .status-point {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: gray;
+    }
+    
+    .status-point.active {
+      background-color: green;
+      animation: blink 1s infinite;
+    }
+    
+    .status-point.deactive {
+      background-color: red;
+    }
+    
+    @keyframes blink {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+      0% {
+        opacity: 0;
+      }
+    }
+    
+    .blink {
+      animation: blink 1s infinite;
+    }
+    
+    @media screen and (max-width: 768px) {
+      .section {
+        flex-basis: calc(50% - 20px);
+        text-align: center;
+        align-content: center;
+      }
+    
+      .section img {
+        width: 70%;
+        height: auto;
+      }
+    
+      #img {
+        width: 100%;
+      }
+    
+      .barcode::after {
+        margin-left: auto;
+        margin-top: 5px;
+        margin-right: auto;
+      }
+      #ahmet {margin-top: 200px;}
+    }
+  </style>
+{% endblock %}
 {% block content %}
   <div class="container">
-    <h1>Luggage</h1>
+    <h1 id="ahmet">Luggage</h1>
     <div class="col">
       {% if user.is_authenticated %}
         {% if not luggages %}
           <p>You have no luggages.</p>
+        {% else %}
+          <div class="container">
+            <div class="section">
+              <img src="{% static 'base/img/p-14.png' %}" />
+              <h1 style="font-family:'Helvetica Bold'">ISTANBUL - MUNICH</h1>
+              <p style="font-family:'Helvetica Bold'; font-size:20px;">
+                24/06/2026 16.26<br />PNR CODE: A45256F
+              </p><br /><h1 id="b" class="blink">Flight Status : <br />1 Hour</h1>
+            </div>
+            <div class="section">
+              <img id="img" src="{% static 'base/img/Untitled (1920 x 1080 px).png' %}" />
+              <h1>Flight Number : TK2831</h1><br />
+              <p style="font-size: 25px;">Airbus A320 neo</p>
+            </div>
+            <ul>
+              {% for luggage in luggages %}
+                <li style="margin-bottom: 30px;">
+                  <div class="section">
+                    <img src="{% static 'base/img/p-02.png' %}" style="margin-left:-30px" />
+                    {% comment %} <h1>Baggage Status</h1><br /><h2 class="barcode">Baggage Barcode :</h2> {% endcomment %}
+                    <h1>Baggage Status</h1><br /><h2 class="barcode" style="">Baggage Barcode :</h2>
+                    <h2 style="margin-top: 20px;">Baggage Weight : {{ luggage.weight }} kg</h2>
+                    <div class="status-bar">
+                      <div class="status-point"></div>
+                      <div class="status-point"></div>
+                      <div class="status-point active"></div>
+                      <div class="status-point deactive"></div>
+                    </div>
+                    <p style="font-size: 20px;">Your baggage has successfully put to the plane.</p>
+                  </div>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% comment %} <ul>
+            {% for luggage in luggages %}
+              <li style="margin-bottom: 30px;">
+                <a href="{% url 'luggage_detail' luggage.id %}">{{ luggage.id }}</a>
+                <img src="{{ luggage.id|generate_barcode }}" alt="barcode" width="200" />
+              </li>
+            {% endfor %}
+          </ul> {% endcomment %}
         {% endif %}
-        <ul>
-          {% for luggage in luggages %}
-            <li style="margin-bottom: 30px;">
-              <a href="{% url 'luggage_detail' luggage.id %}">{{ luggage.id }}</a>
-              <img src="{{ luggage.id|generate_barcode }}" alt="barcode" width="200" />
-            </li>
-          {% endfor %}
-        </ul>
       {% endif %}
     </div>
   </div>
