@@ -17,3 +17,7 @@ def generate_barcode(value):
     encoded_string = base64.b64encode(output.getvalue()).decode()
 
     return "data:image/svg+xml;base64," + encoded_string
+
+@register.filter
+def get_item(dictionary, key):
+    return dictionary.get(key)

@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.safestring import mark_safe
 
 # Register your models here.
-from .models import Luggage
+from .models import Luggage, Airport
 
 # Register your models here.
 
@@ -20,3 +20,4 @@ class LuggageAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Luggage, LuggageAdmin)
+admin.site.register(Airport)

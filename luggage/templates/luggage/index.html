@@ -194,12 +194,12 @@
                     <h1>Baggage Status</h1><br /><h2 class="barcode" style="">Baggage Barcode :</h2>
                     <h2 style="margin-top: 20px;">Baggage Weight : {{ luggage.weight }} kg</h2>
                     <div class="status-bar">
-                      <div class="status-point"></div>
-                      <div class="status-point"></div>
-                      <div class="status-point active"></div>
-                      <div class="status-point deactive"></div>
+                      <div class="status-point {{status|get_item:luggage.pk|get_item:1}}"></div>
+                      <div class="status-point {{status|get_item:luggage.pk|get_item:2}}"></div>
+                      <div class="status-point {{status|get_item:luggage.pk|get_item:3}}"></div>
+                      <div class="status-point {{status|get_item:luggage.pk|get_item:4}}"></div>
                     </div>
-                    <p style="font-size: 20px;">Your baggage has successfully put to the plane.</p>
+                    <p style="font-size: 20px;">{{message|get_item:luggage.pk}}</p>
                   </div>
                 </li>
               {% endfor %}
